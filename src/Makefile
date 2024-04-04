@@ -1,18 +1,19 @@
 CC=gcc
-FLAGS=-Wall -Werror -Wextra
-OBJ_FILES=main.o draw.o
+FLAGS=
+#-Wall -Werror -Wextra
+OBJ_FILES=main.o ndraw.o
 BUILD=../build/renderer
 
 all: build clang clean.o
 
 build: $(OBJ_FILES)
-	$(CC) $(FLAGS) $(OBJ_FILES) -o $(BUILD)
+	$(CC) $(FLAGS) $(OBJ_FILES) -o $(BUILD) -lncurses
 
 main.o: main.c
 	$(CC) $(FLAGS) -c main.c
 
-draw.o: draw.c
-	$(CC) $(FLAGS) -c draw.c
+ndraw.o: ndraw.c
+	$(CC) $(FLAGS) -c ndraw.c
 
 clean.o:
 	rm *.o
