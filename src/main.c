@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
                 x *= aspect * PIXEL_ASPECT;
                 x += sin(t * 0.1);
                 // if (pow(x, 2) + pow(y, 2) < 0.25) matrix[j][i] = lightness(0.5);
-                matrix[j][i] = lightness(0.04 / sqrt(pow(x, 2) + pow(y, 2)));
+                matrix[j][i] = lightness(0.08 / sqrt(pow(x, 2) + pow(y, 2)));
             }
         refresh();
         clear();
