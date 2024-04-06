@@ -1,33 +1,30 @@
 #ifndef WINDOW_H
 #define WINDOW_H
-#include <vector>
-#include <iostream>
-#include <ncurses.h>
 #include <math.h>
+#include <ncurses.h>
+
+#include <iostream>
+#include <vector>
 #define PIXEL_ASPECT 0.5
 #define GRADIENT " .:!/r(l1Z4H9W8$@";
 
-
-
-
+int lightness(double x);
 
 class Window {
-    private:
+   private:
+    int col;
+    int row;
 
-        int col = 0;
-        int row = 0;
-        int** matrix;
-        int** create_matrix(int row, int col);
+    int** create_matrix(int row, int col);
 
-    public:
-        Window(int row, int col);
-        const int get_size_x();
-        const int get_size_y();
-        void draw();
-        ~Window();
-
-
+   public:
+    int** matrix;
+    Window(int row, int col);
+    const int get_col();
+    const int get_row();
+    void draw();
+    void clear();
+    ~Window();
 };
-
 
 #endif

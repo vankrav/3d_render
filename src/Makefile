@@ -4,10 +4,19 @@ FLAGS=
 OBJ_FILES=main.o ndraw.o
 BUILD=../build/renderer
 
-all: build clang clean.o
+all: build_cpp clang 
+
+build_cpp: main_cpp.o window.o
+	clang++  main_cpp.o window.o -o $(BUILD) -lncurses
 
 build: $(OBJ_FILES)
 	$(CC) $(FLAGS) $(OBJ_FILES) -o $(BUILD) -lncurses
+
+main_cpp.o: main.c
+	clang++ main.cpp -c -o main_cpp.o 
+
+window.o: window.cpp
+	clang++ window.cpp -c  
 
 main.o: main.c
 	$(CC) $(FLAGS) -c main.c
@@ -24,9 +33,9 @@ clean: clean.o
 rebuild: clean build
 
 clang:
-	clang-format -i *.c *.h
+	clang-format -i *.c *.h *.cpp
 
 git:
 	git add .
 	git commit -m "regular make commit"
-	git push origin develop
+	git push origin develop_cpp

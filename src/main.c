@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
-
-
 #include <math.h>
 #include <ncurses.h>
 #include <stdio.h>
