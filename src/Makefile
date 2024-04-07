@@ -4,7 +4,7 @@ FLAGS=
 OBJ_FILES=main.o ndraw.o
 BUILD=../build/renderer
 
-all: build_cpp clang 
+all: build_cpp clang clean.o
 
 build_cpp: main_cpp.o window.o
 	clang++  main_cpp.o window.o -o $(BUILD) -lncurses
